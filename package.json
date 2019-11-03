@@ -1,0 +1,22 @@
+{
+  "name": "autodeploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonPessman/autodeploy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonPessman/autodeploy/issues"
+  },
+  "homepage": "https://github.com/BrandonPessman/autodeploy#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
