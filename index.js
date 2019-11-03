@@ -7,6 +7,18 @@ app.post('/deploy', (req, res) => {
   res.status(200)
 })
 
-app.listen(port, () => {
-  console.log('Autodeploy Server is up and running on port: ' + port)
-})
+https
+  .createServer(
+    {
+      key: fs.readFileSync(
+        '/etc/letsencrypt/live/brandonpessman.com/privkey.pem'
+      ),
+      cert: fs.readFileSync(
+        '/etc/letsencrypt/live/brandonpessman.com/cert.pem'
+      )
+    },
+    app
+  )
+  .listen(port, () => {
+    console.log('Autodeploy is up and running on port: ' + port)
+  })
