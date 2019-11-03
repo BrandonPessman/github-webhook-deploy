@@ -4,6 +4,7 @@ const port = 8001
 
 app.post('/deploy', (req, res) => {
   console.log('RECIEVED DATA FROM GITHUB')
+  res.json({status: 'success'})
 })
 
 app.listen(port, () => {
