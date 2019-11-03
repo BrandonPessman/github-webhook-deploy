@@ -8,6 +8,15 @@ const https = require('https')
 
 app.post('/deploy', (req, res) => {
   console.log('RECIEVED DATA FROM GITHUB')
+
+  const exec = require('child_process').exec
+  exec('sh ./personalWebsiteDeploy.sh', (error, stdout, stderr) => {
+    console.log(stdout)
+    console.log(stderr)
+    if (error !== null) {
+      console.log(`exec error: ${error}`)
+    }
+  })
   res.status(200)
 })
 
