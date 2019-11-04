@@ -5,12 +5,19 @@ const port = 8001
 // HTTPS Setup
 const fs = require('fs')
 const https = require('https')
+var execFile = require('child_process').execFile
 
 app.post('/deploy', (req, res) => {
   console.log('RECIEVED DATA FROM GITHUB')
-
-  const exec = require('child_process').exec, child;
-  const myShellScript = exec('sh personalWebsiteDeploy.sh ./');
+  execFile('./personalWebsiteDeploy.sh', function (error, stdout, stderr) {
+    // Log success in some manner
+    console.log('exec complete', error, stdout, stderr)
+    res.json({
+      error: error,
+      stdout: stdout,
+      stderr: stderr
+    })
+  })
 
   res.status(200)
 })
