@@ -12,11 +12,6 @@ app.post('/deploy', (req, res) => {
   execFile('./personalWebsiteDeploy.sh', function (error, stdout, stderr) {
     // Log success in some manner
     console.log('exec complete', error, stdout, stderr)
-    res.json({
-      error: error,
-      stdout: stdout,
-      stderr: stderr
-    })
   })
 
   res.status(200)
