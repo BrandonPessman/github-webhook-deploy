@@ -8,6 +8,7 @@ app.post('/deploy', (req, res) => {
   console.log('RECIEVED DATA FROM GITHUB')
   execFile('./fableverseFrontendDeploy.sh', function (error, stdout, stderr) {
     console.log('exec complete', error, stdout, stderr)
+    res.status(200)
   })
 
   res.status(200)
