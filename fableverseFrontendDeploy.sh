@@ -1,5 +1,5 @@
 echo 'Starting Deployment!'
-cd /var/www/personalWebsite/frontend/
+cd /var/www/fableverse-frontend/frontend/
 git pull
 echo 'Pulled from Github'
 npm install
