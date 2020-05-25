@@ -4,24 +4,12 @@ const port = 8003
 
 var execFile = require('child_process').execFile
 
-app.post('/deploy/frontend', (req, res) => {
-  console.log('RECIEVED DATA FROM GITHUB')
-  execFile('./fableverseFrontendDeploy.sh', function (error, stdout, stderr) {
-    console.log('exec complete', error, stdout, stderr)
-    res.status(200)
-  })
-
+app.post('/deploy/examplebash', (req, res) => {
   res.status(200)
-})
-
-app.post('/deploy/backend', (req, res) => {
-  console.log('RECIEVED DATA FROM GITHUB')
-  execFile('./fableverseBackendDeploy.sh', function (error, stdout, stderr) {
-    console.log('exec complete', error, stdout, stderr)
-    res.status(200)
+  console.log('Github webhook deploy initiating...')
+  execFile('./ExampleBash.sh', function (error, stdout, stderr) {
+    console.log('Github webhook deploy complete!')
   })
-
-  res.status(200)
 })
 
 app.listen(port, () => {
